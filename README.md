@@ -42,6 +42,23 @@ Context switching involves saving the current state of a running task and loadin
 
 ---
 
+Thread States
+-> New
+-> Runnable
+-> Running
+-> Blocked
+-> Waiting
+-> Timed_Waiting
+-> Dead 
+
+LifeCycle of Thread
+-> NEW → RUNNABLE → start()
+-> RUNNABLE → BLOCKED → Waiting for a lock
+-> RUNNABLE → WAITING → wait(), join()
+-> RUNNABLE → TIMED_WAITING → sleep(), wait(timeout)
+-> TERMINATED → Thread has finished execution
+
+
 public static void main(String[] args) {
   TicketBookingSystem bookingSystem = new TicketBookingSystem(1000);
 
