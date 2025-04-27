@@ -42,4 +42,49 @@ Context switching involves saving the current state of a running task and loadin
 
 ---
 
-Would you also like me to format it into a nice visual diagram to make it even more intuitive? 📊
+public static void main(String[] args) {
+  TicketBookingSystem bookingSystem = new TicketBookingSystem(1000);
+
+  Thread physicalThread = new Thread(new PhysicalBooking(bookingSystem));
+  Thread digitalThread = new Thread(new DigitalBooking(bookingSystem));
+
+  System.out.println("Starting ticket booking system with 1000 tickets...");
+
+  physicalThread.start();
+  digitalThread.start();
+
+  try {
+      physicalThread.join();
+      digitalThread.join();
+  } catch (InterruptedException e) {
+      e.printStackTrace();
+  }
+
+  System.out.println("All tickets booked. Program ending.");
+}
+
+Thread methods
+
+join() 
+-> Join method makes the current thread to wait for completion of the thread on which join method is called.
+When Main Thread call newThread().join(), it makes Main thread enter waiting state this execution completion of newThread. When newThread terminates it calls notifyAll to wake up main Thread for it's execution.
+In Above code, the Main Thread will wait for completion of physicalThread, once the physical thread terminates main thread continues its executions, then again call digitalThread.join(), where main thread checks 
+If digitalThread is still executing or completed, if digitalThread still executing then the main thread agin goes into waiting state or Timed_Waiting state.
+If digitalThread was completed by the time digitalThread.join() called by main, the main doesn't goes into waiting state and continues it's execution.
+
+sleep()
+-> Thread.sleep(1000) makes the current thread moved into Waiting state
+-> If Thread holds locks before going to sleep, it'll continues holding the lock even after going to sleep
+
+wait()
+-> wait method() called to make current thread move to waiting State indefinetlly until notifies and release any lock acquired
+-> Anytime wait() is executed by a Thread, it'll went into the waitSet of the Object where this wait() is called. Each Object have WaitSet(It's a set collection to store thread in waiting state).
+
+notify() 
+-> Notify notifies any one of the Thread waiting in waitset
+
+notifyAll()
+-> NotifyAll notifies all the Thread waiting in waitset
+
+yield()
+-> Thread.yield(), suggest CPUs to take the CPU if any high priority Thread is in waiting state.
