@@ -105,3 +105,44 @@ notifyAll()
 
 yield()
 -> Thread.yield(), suggest CPUs to take the CPU if any high priority Thread is in waiting state.
+
+
+
+How ExecutorService and ThreadPoolExecutor work?
+ExecutorService & ThreadPoolExecutor are key component of Executor FrameWork. ExecutorService have submit(), execute() methods to execute a Runnableor or Callable.
+ThreadPoolExecutor helps creating a pool of thread and manages these thread in giving them tasks.
+
+new ThreadPoolExecutor(
+  int corePoolSize,         // Minimum number of threads to keep alive
+  int maximumPoolSize,      // Maximum number of threads in the pool
+  long keepAliveTime,       // Time to keep extra threads alive when idle
+  TimeUnit unit,            // Time unit for keepAliveTime
+  BlockingQueue<Runnable> workQueue, // Task queue
+  ThreadFactory threadFactory,       // (Optional) Custom thread creation
+  RejectedExecutionHandler handler   // (Optional) Handles rejected tasks
+)
+How It Works (Lifecycle):
+Task Submission:
+  You call submit() or execute() to submit a Runnable or Callable.
+Queueing:
+  If the number of running threads is less than corePoolSize, a new thread is started.
+  If corePoolSize is reached, the task is added to the workQueue.
+Thread Reuse:
+  Idle threads pick up new tasks from the queue without creating new threads.
+Scaling Up:
+  If the queue is full and fewer than maximumPoolSize threads are running, new threads are created.
+Rejection:
+  If the queue is full and the thread limit is hit, the task is rejected using the RejectedExecutionHandler.
+Shutdown:
+  You can call shutdown() to stop accepting new tasks and finish existing ones.
+
+
+Understanding the differences between synchronized and ReentrantLock?
+-> Although both being used for locking of resources so that other thread cannot hinder the task execution. Reentrant have some added advantage due to functional supports like
+-> ReentrantLock is flexible to acquire lock in one method and release in another, as reentractLock is nothing but a Object which can be passed around for flexiblity
+-> ReentrantLock can helps acquire multiple lock on resource.
+-> ReentrantLock has fairness parameter, when enabled the resorces will be acquired by the thread waiting for longest time
+-> ReentrantLock provides a method called lockInterruptibly(), which can be used to interrupt thread when it is waiting for lock. Similarly tryLock() with timeout can be used to timeout if lock is not available in certain time period.
+-> Synchronization code is much cleaner and easy to maintain whereas with Lock we are forced to have try-finally block to make sure Lock is released even if some exception is thrown between lock() and unlock() method calls.
+reference: https://medium.com/@greekykhs/reentrant-locks-163ee3d6f9a5
+
