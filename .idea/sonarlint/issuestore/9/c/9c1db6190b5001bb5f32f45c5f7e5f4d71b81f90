@@ -1,0 +1,29 @@
+
+7
+java:S1220""Move this file to a named package.8ß™³°ç2
+G	java:S106"+Replace this use of System.out by a logger.(¼ùœÉ8×“š±ç2
+F	java:S106"+Replace this use of System.out by a logger.(ËÏŸ18ı—¹ç2
+L	java:S106"+Replace this use of System.out by a logger.(‚úÈ£ûÿÿÿÿ8ş—¹ç2
+L	java:S106"+Replace this use of System.out by a logger.(îóñıÿÿÿÿ8ş—¹ç2
+M
+java:S2446"0"notify" may not wake up the appropriate thread.(¸¹Ğ8ÿ—¹ç2
+L	java:S106$"+Replace this use of System.out by a logger.(œÚï„ıÿÿÿÿ8€Ÿ—¹ç2
+G	java:S106-"+Replace this use of System.out by a logger.(ˆ–¿à8Ÿ—¹ç2
+L	java:S106/"+Replace this use of System.out by a logger.(‚úÈ£ûÿÿÿÿ8Ÿ—¹ç2
+F	java:S1061"+Replace this use of System.out by a logger.(çïÁL8Ÿ—¹ç2
+R
+java:S24466"0"notify" may not wake up the appropriate thread.(Ó¢Ğäıÿÿÿÿ8‚Ÿ—¹ç2
+K
+java:S2140H")Use "java.util.Random.nextInt()" instead.(Èí…µşÿÿÿÿ8…Ÿ—¹ç2
+{
+java:S2142R"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8…Ÿ—¹ç2
+L	java:S106V"+Replace this use of System.out by a logger.(øïËèüÿÿÿÿ8†Ÿ—¹ç2
+K
+java:S2140d")Use "java.util.Random.nextInt()" instead.(Èí…µşÿÿÿÿ8‡Ÿ—¹ç2
+{
+java:S2142n"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8ˆŸ—¹ç2
+G	java:S106r"+Replace this use of System.out by a logger.(ñ¹‡š8ŠŸ—¹ç2
+L	java:S106}"+Replace this use of System.out by a logger.(öÂ¿•şÿÿÿÿ8Ÿ—¹ç2
+|
+java:S2142…"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8Ÿ—¹ç2
+H	java:S106‰"+Replace this use of System.out by a logger.(ãå¾­8‘Ÿ—¹ç2
